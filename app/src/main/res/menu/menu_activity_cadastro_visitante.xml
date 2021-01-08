@@ -5,10 +5,12 @@
     <item
         android:id="@+id/action_ok"
         android:title="@string/title_menu_ok"
+        android:icon="@drawable/ic_baseline_save_24"
         android:orderInCategory="1"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_excluir"
+        android:icon="@drawable/ic_baseline_delete_24"
         android:title="@string/title_menu_excluir"
         android:orderInCategory="2"
         app:showAsAction="ifRoom" />
