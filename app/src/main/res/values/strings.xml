@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Calebe Registro diário</string>
+    <string name="title_activity_main">Cadastro de visitantes</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_cadastro_visitante">Visitante</string>
+    <string name="lbl_nome">Nome</string>
+    <string name="lbl_endereco">Endereço</string>
+    <string name="lbl_telefone">Telefone</string>
+    <string name="title_menu_ok">Ok</string>
+    <string name="title_menu_cancelar">Cancelar</string>
+    <string name="title_aviso">Aviso</string>
+    <string name="message_campos_vazios">Preencha todos os campos</string>
+    <string name="action_ok">OK</string>
+    <string name="message_conexao_criada_com_sucesso">Conexão criada com sucesso!</string>
+    <string name="action_certo">Certo</string>
+    <string name="title_erro">Erro</string>
+    <string name="title_menu_excluir">Excluir</string>
+    <string name="title_activity_splash">Calebe Registro diário</string>
+    <string name="dia_01">Dia 01</string>
+    <string name="dia_02">Dia 02</string>
+    <string name="dia_03">Dia 03</string>
+    <string name="dia_04">Dia 04</string>
+    <string name="dia_05">Dia 05</string>
+    <string name="dia_06">Dia 06</string>
+    <string name="dia_07">Dia 07</string>
+    <string name="dia_08">Dia 08</string>
+    <string name="dia_09">Dia 09</string>
+    <string name="dia_10">Dia 10</string>
+    <string name="dia_11">Dia 11</string>
+    <string name="dia_12">Dia 12</string>
+    <string name="dia_13">Dia 13</string>
+    <string name="dia_14">Dia 14</string>
+    <string name="dia_15">Dia 15</string>
+    <string name="dia_16">Dia 16</string>
+    <string name="dia_17">Dia 17</string>
+    <string name="dia_18">Dia 18</string>
+    <string name="dia_19">Dia 19</string>
+    <string name="dia_20">Dia 20</string>
+    <string name="frequ_ncia_do_amigo_visitante">FREQUÊNCIA DO AMIGO VISITANTE</string>
+    <string name="igreja_adventista_do_s_timo_dia_central_de_teot_nio_vilela">Igreja Adventista do Sétimo dia Central de Teotônio Vilela</string>
+    <string name="digite_o_nome_do_visitante">Digite o nome do visitante</string>
+    <string name="digite_o_endere_o_do_visitante">Digite o endereço do visitante</string>
+    <string name="_82_9_9999_9999">(82) 9–9999-9999</string>
+    <string name="_829_9999_9999">(82) 9-9999-9999</string>
+</resources>
