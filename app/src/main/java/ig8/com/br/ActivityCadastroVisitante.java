@@ -1,5 +1,6 @@
 package ig8.com.br;
 
+import android.content.DialogInterface;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -245,10 +246,6 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
             if (res = isCampoVazio(endereco)){
                 editEndereco.requestFocus();
             }
-            else
-                if (res = isCampoVazio(telefone)){
-                    editTelefone.requestFocus();
-                }
         if (res){
 
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
@@ -299,9 +296,18 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
                 break;
 
             case R.id.action_excluir:
+                new AlertDialog.Builder(this)
+                        .setTitle("Excluindo Visitante")
+                        .setMessage("Você quer Excluir esse Visitante?")
+                        .setPositiveButton("sim", new DialogInterface.OnClickListener() {
 
-                visitanteRepositorio.excluir(visitante.codigo);
-                finish();
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                visitanteRepositorio.excluir(visitante.codigo);
+                                finish();
+                            }
+                        }).setNegativeButton("não", null) .show();
+
 
                 break;
 
