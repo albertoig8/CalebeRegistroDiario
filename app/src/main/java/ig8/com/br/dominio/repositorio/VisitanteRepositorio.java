@@ -23,6 +23,7 @@ public class VisitanteRepositorio {
         ContentValues contentValues = new ContentValues();
         contentValues.put("NOME", visitante.nome);
         contentValues.put("ENDERECO", visitante.endereco);
+        contentValues.put("NUMERO", visitante.numero);
         contentValues.put("TELEFONE", visitante.telefone);
         contentValues.put("DIA1", visitante.dia1);
         contentValues.put("DIA2", visitante.dia2);
@@ -66,6 +67,7 @@ public class VisitanteRepositorio {
         ContentValues contentValues = new ContentValues();
         contentValues.put("NOME", visitante.nome);
         contentValues.put("ENDERECO", visitante.endereco);
+        contentValues.put("NUMERO", visitante.numero);
         contentValues.put("TELEFONE", visitante.telefone);
         contentValues.put("DIA1", visitante.dia1);
         contentValues.put("DIA2", visitante.dia2);
@@ -102,7 +104,7 @@ public class VisitanteRepositorio {
         List<Visitante> visitantes = new ArrayList<Visitante>();
 
         StringBuilder sql = new StringBuilder();
-        sql.append(" SELECT CODIGO, NOME, ENDERECO, TELEFONE, DIA1, DIA2, DIA3, DIA4, DIA5, DIA6, DIA7, DIA8, DIA9, DIA10, DIA11, DIA12, DIA13, DIA14, DIA15, DIA16, DIA17, DIA18, DIA19, DIA20 ");
+        sql.append(" SELECT CODIGO, NOME, ENDERECO, NUMERO, TELEFONE, DIA1, DIA2, DIA3, DIA4, DIA5, DIA6, DIA7, DIA8, DIA9, DIA10, DIA11, DIA12, DIA13, DIA14, DIA15, DIA16, DIA17, DIA18, DIA19, DIA20 ");
         sql.append(" FROM VISITANTE");
 
         Cursor resultado = conexao.rawQuery(sql.toString(), null);
@@ -118,6 +120,7 @@ public class VisitanteRepositorio {
                 vis.codigo   = resultado.getInt( resultado.getColumnIndexOrThrow("CODIGO") );
                 vis.nome     = resultado.getString( resultado.getColumnIndexOrThrow("NOME") );
                 vis.endereco = resultado.getString( resultado.getColumnIndexOrThrow("ENDERECO") );
+                vis.numero     = resultado.getString( resultado.getColumnIndexOrThrow("NUMERO") );
                 vis.telefone = resultado.getString( resultado.getColumnIndexOrThrow("TELEFONE") );
                 vis.dia1     = resultado.getInt(resultado.getColumnIndex("DIA1")) > 0;
                 vis.dia2     = resultado.getInt(resultado.getColumnIndex("DIA2")) > 0;
@@ -157,7 +160,7 @@ public class VisitanteRepositorio {
         Visitante visitante = new Visitante();
 
         StringBuilder sql = new StringBuilder();
-        sql.append(" SELECT CODIGO, NOME, ENDERECO, TELEFONE, DIA1, DIA2, DIA3, DIA4, DIA5, DIA6, DIA7, DIA8, DIA9, DIA10, DIA11, DIA12, DIA13, DIA14, DIA15, DIA16, DIA17, DIA18, DIA19, DIA20 ");
+        sql.append(" SELECT CODIGO, NOME, ENDERECO, NUMERO, TELEFONE, DIA1, DIA2, DIA3, DIA4, DIA5, DIA6, DIA7, DIA8, DIA9, DIA10, DIA11, DIA12, DIA13, DIA14, DIA15, DIA16, DIA17, DIA18, DIA19, DIA20 ");
         sql.append(" FROM VISITANTE");
         sql.append(" WHERE CODIGO");
 
@@ -173,6 +176,7 @@ public class VisitanteRepositorio {
             visitante.codigo = resultado.getInt(resultado.getColumnIndexOrThrow("CODIGO" ));
             visitante.nome = resultado.getString(resultado.getColumnIndexOrThrow("NOME" ));
             visitante.endereco = resultado.getString(resultado.getColumnIndexOrThrow("ENDERECO" ));
+            visitante.numero = resultado.getString(resultado.getColumnIndexOrThrow("NUMERO" ));
             visitante.telefone = resultado.getString(resultado.getColumnIndexOrThrow("TELEFONE" ));
             visitante.dia1     = resultado.getInt(resultado.getColumnIndex("DIA1")) > 0;
             visitante.dia2     = resultado.getInt(resultado.getColumnIndex("DIA2")) > 0;

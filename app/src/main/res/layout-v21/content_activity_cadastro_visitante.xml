@@ -3,6 +3,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -45,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="100dp"
+            android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/custom_icon_house"
             android:drawablePadding="12dp"
@@ -59,8 +61,7 @@
             android:theme="@style/MyEditTextTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editNome"
-            android:autofillHints="" />
+            app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
         <EditText
             android:id="@+id/editTelefone"
@@ -393,6 +394,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkdia10"
             app:layout_constraintVertical_chainStyle="spread" />
+
+        <EditText
+            android:id="@+id/editNumero"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/n"
+            android:background="@drawable/custom_input"
+            android:paddingLeft="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toEndOf="@+id/editEndereco"
+            app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

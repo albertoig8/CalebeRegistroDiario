@@ -7,6 +7,7 @@ public class Visitante implements Serializable {
     public int codigo;
     public String nome;
     public String endereco;
+    public String numero;
     public String telefone;
     public boolean dia1;
     public boolean dia2;
@@ -33,6 +34,7 @@ public class Visitante implements Serializable {
 
     public String getNome(){ return this.nome; }
     public String getEndereco(){ return this.endereco; }
+    public String getNumero(){ return this.numero; }
     public String getTelefone(){ return this.telefone; }
     public boolean getDia1(){ return this.dia1; }
     public boolean getDia2(){ return this.dia2; }

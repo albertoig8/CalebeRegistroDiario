@@ -47,6 +47,7 @@ public class VisitanteAdapter extends RecyclerView.Adapter<VisitanteAdapter.View
             holder.textNome.setText(visitante.nome);
             holder.textTelefone.setText(visitante.telefone);
             holder.textEndereco.setText(visitante.endereco);
+            holder.textNumero.setText(visitante.numero);
         }
 
     }
@@ -61,13 +62,15 @@ public class VisitanteAdapter extends RecyclerView.Adapter<VisitanteAdapter.View
         public TextView textNome;
         public TextView textTelefone;
         public TextView textEndereco;
+        public TextView textNumero;
 
         public ViewHolderVisitante(@NonNull View itemView, final Context context) {
             super(itemView);
 
             textNome = (TextView) itemView.findViewById(R.id.textNome);
-            textTelefone = (TextView) itemView.findViewById(R.id.textEndereco);
-            textEndereco = (TextView) itemView.findViewById(R.id.textTelefone);
+            textEndereco = (TextView) itemView.findViewById(R.id.textEndereco);
+            textNumero = (TextView) itemView.findViewById(R.id.textNumero);
+            textTelefone = (TextView) itemView.findViewById(R.id.textTelefone);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

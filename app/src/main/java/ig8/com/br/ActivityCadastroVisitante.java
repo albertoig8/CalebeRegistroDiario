@@ -18,6 +18,10 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.github.rtoshiro.util.format.MaskFormatter;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 import ig8.com.br.database.DadosOpenHelper;
 import ig8.com.br.dominio.entidades.Visitante;
 import ig8.com.br.dominio.repositorio.VisitanteRepositorio;
@@ -26,6 +30,7 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
     private EditText editNome;
     private EditText editEndereco;
+    private EditText editNumero;
     private EditText editTelefone;
     private CheckBox checkdia1;
     private CheckBox checkdia2;
@@ -68,6 +73,7 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
         editNome = (EditText)findViewById(R.id.editNome);
         editEndereco = (EditText)findViewById(R.id.editEndereco);
+        editNumero = (EditText)findViewById(R.id.editNumero);
         editTelefone = (EditText)findViewById(R.id.editTelefone);
         checkdia1 = (CheckBox)findViewById(R.id.checkdia1);
         checkdia2 = (CheckBox)findViewById(R.id.checkdia2);
@@ -95,6 +101,12 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
         criarConexao();
         verificaParanmetro();
 
+        // Criando a mascara para o campo de celular
+        SimpleMaskFormatter smf = new SimpleMaskFormatter("(NN)N-NNNN-NNNN");
+        MaskTextWatcher mtw = new MaskTextWatcher(editTelefone, smf);
+        editTelefone.addTextChangedListener(mtw);
+        //Fim da mascara
+
     }
 
 
@@ -109,6 +121,7 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
             editNome.setText(visitante.nome);
             editEndereco.setText(visitante.endereco);
+            editNumero.setText(visitante.numero);
             editTelefone.setText(visitante.telefone);
             checkdia1.setChecked(visitante.dia1);
             checkdia2.setChecked(visitante.dia2);
@@ -188,6 +201,7 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
         String nome     = editNome.getText().toString();
         String endereco = editEndereco.getText().toString();
+        String numero = editNumero.getText().toString();
         String telefone = editTelefone.getText().toString();
         boolean dia1    = checkdia1.isChecked();
         boolean dia2    = checkdia2.isChecked();
@@ -216,6 +230,7 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
         visitante.nome     = nome;
         visitante.endereco = endereco;
+        visitante.numero   = numero;
         visitante.telefone = telefone;
         visitante.dia1     = dia1;
         visitante.dia2     = dia2;
@@ -245,6 +260,10 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
         else
             if (res = isCampoVazio(endereco)){
                 editEndereco.requestFocus();
+            }
+            else
+            if (res = isCampoVazio(numero)){
+                editNumero.requestFocus();
             }
         if (res){
 

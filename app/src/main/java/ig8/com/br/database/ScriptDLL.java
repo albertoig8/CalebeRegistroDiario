@@ -10,6 +10,7 @@ public class   ScriptDLL {
         sql.append("       CODIGO   INTEGER       PRIMARY KEY AUTOINCREMENT NOT NULL, ");
         sql.append("       NOME     VARCHAR (250) NOT NULL DEFAULT (''), ");
         sql.append("       ENDERECO VARCHAR (250) NOT NULL DEFAULT (''), ");
+        sql.append("       NUMERO   VARCHAR (10) NOT NULL DEFAULT (''), ");
         sql.append("       TELEFONE VARCHAR (250) NOT NULL DEFAULT (''), ");
         sql.append("       DIA1     INTEGER       NOT NULL,");
         sql.append("       DIA2     INTEGER       NOT NULL,");
