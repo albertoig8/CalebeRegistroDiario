@@ -11,11 +11,15 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.List;
@@ -49,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fab = findViewById(R.id.fab);
-        listDados = (RecyclerView)findViewById(R.id.listDados);
+        listDados = (RecyclerView) findViewById(R.id.listDados);
 
-        layoutContentMain = (ConstraintLayout)findViewById(R.id.layoutContentMain);
+        layoutContentMain = (ConstraintLayout) findViewById(R.id.layoutContentMain);
 
         criarConexao();
 
@@ -73,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void criarConexao() {
 
-        try{
+        try {
             dadosOpenHelper = new DadosOpenHelper(this);
             conexao = dadosOpenHelper.getWritableDatabase();
 
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
 
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
             dlg.setTitle(R.string.title_erro);
@@ -106,4 +110,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 }
+

@@ -106,6 +106,7 @@ public class VisitanteRepositorio {
         StringBuilder sql = new StringBuilder();
         sql.append(" SELECT CODIGO, NOME, ENDERECO, NUMERO, TELEFONE, DIA1, DIA2, DIA3, DIA4, DIA5, DIA6, DIA7, DIA8, DIA9, DIA10, DIA11, DIA12, DIA13, DIA14, DIA15, DIA16, DIA17, DIA18, DIA19, DIA20 ");
         sql.append(" FROM VISITANTE");
+        sql.append(" ORDER BY NOME");
 
         Cursor resultado = conexao.rawQuery(sql.toString(), null);
 

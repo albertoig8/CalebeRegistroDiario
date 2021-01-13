@@ -49,9 +49,20 @@
     <string name="digite_o_endere_o_do_visitante">Digite o endereço do visitante</string>
     <string name="_82_9_9999_9999">(82) 9–9999-9999</string>
     <string name="_829_9999_9999">(82) 9-9999-9999</string>
-    <string name="n">Nº</string>
+    <string name="nn">Nº</string>
     <string name="n">Nº</string>
     <string name="_82_9_9404_068N">(82)9-9404-0681</string>
     <string name="teotonio_vilela_al">Teotonio Vilela - AL</string>
     <string name="alberto_da_silva_araujo">Alberto da silva Araujo</string>
+    <string name="title_activity_principal">ActivityPrincipal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>
