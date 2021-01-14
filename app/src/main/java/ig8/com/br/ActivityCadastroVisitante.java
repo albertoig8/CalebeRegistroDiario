@@ -62,7 +62,6 @@ public class ActivityCadastroVisitante extends AppCompatActivity {
 
     private Visitante visitante;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

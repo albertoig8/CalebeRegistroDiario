@@ -13,6 +13,7 @@ public class VisitanteRepositorio {
 
     private SQLiteDatabase conexao;
 
+
     public VisitanteRepositorio(SQLiteDatabase conexao) {
         this.conexao = conexao;
     }
@@ -100,7 +101,6 @@ public class VisitanteRepositorio {
 
 
     public List<Visitante> buscarTodos(){
-
         List<Visitante> visitantes = new ArrayList<Visitante>();
 
         StringBuilder sql = new StringBuilder();
@@ -154,6 +154,8 @@ public class VisitanteRepositorio {
         return visitantes;
 
     }
+
+
 
 
     public Visitante buscarVisitante(int codigo){

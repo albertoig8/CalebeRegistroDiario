@@ -57,6 +57,7 @@ public class VisitanteAdapter extends RecyclerView.Adapter<VisitanteAdapter.View
         return dados.size();
     }
 
+
     public class ViewHolderVisitante extends RecyclerView.ViewHolder{
 
         public TextView textNome;
