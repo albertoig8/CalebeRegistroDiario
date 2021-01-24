@@ -53,6 +53,7 @@ public class VisitanteRepositorio {
     }
 
 
+
     public void excluir(int codigo){
 
         String[] parametros = new String[1];
@@ -154,8 +155,6 @@ public class VisitanteRepositorio {
         return visitantes;
 
     }
-
-
 
 
     public Visitante buscarVisitante(int codigo){

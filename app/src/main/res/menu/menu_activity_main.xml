@@ -9,4 +9,11 @@
         android:title="Busca"
         app:actionViewClass="android.widget.SearchView" />
 
+    <item
+        android:id="@+id/menu_gerar_pdf"
+        app:showAsAction="always"
+        android:title="PDF"
+        android:icon="@drawable/ic_pdf"
+        />
+
 </menu>

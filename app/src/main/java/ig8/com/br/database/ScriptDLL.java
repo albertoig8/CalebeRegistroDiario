@@ -1,5 +1,11 @@
 package ig8.com.br.database;
 
+import android.database.sqlite.SQLiteDatabase;
+
+import java.util.List;
+
+import ig8.com.br.dominio.entidades.Visitante;
+
 public class   ScriptDLL {
 
     public static String getCriateTableVisitante(){

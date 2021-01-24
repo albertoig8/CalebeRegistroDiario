@@ -1,8 +1,14 @@
 package ig8.com.br;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,13 +19,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import ig8.com.br.database.DadosOpenHelper;
@@ -67,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         visitanteAdapter = new VisitanteAdapter(dados);
 
         listDados.setAdapter(visitanteAdapter);
-
     }
 
 
@@ -95,6 +106,56 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private Bitmap fotoDoRecyclerView(RecyclerView view){
+        RecyclerView.Adapter adapter = view.getAdapter();
+
+        Bitmap bitmapPronto = null;
+
+        if (adapter != null){
+
+            Paint paint = new Paint();
+            int tamanhoDaLista = adapter.getItemCount();
+            int altura = 0;
+            int alturaVolatil = 0;
+            final int tamanhoMaximoDoArquivo = (int) (Runtime.getRuntime().maxMemory() / 1024);
+            final int tamanhoDoCache = tamanhoMaximoDoArquivo / 8;
+            LruCache<String, Bitmap> bitmapCache = new LruCache<>(tamanhoDoCache);
+
+            for (int x = 0; x < tamanhoDaLista; x++){
+                RecyclerView.ViewHolder holder = adapter.createViewHolder(view, adapter.getItemViewType(x));
+                adapter.bindViewHolder(holder, x);
+
+                holder.itemView.measure(View.MeasureSpec.makeMeasureSpec(view.getWidth(),View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                holder.itemView.layout(0,0, holder.itemView.getMeasuredWidth(),holder.itemView.getMeasuredHeight());
+                holder.itemView.setDrawingCacheEnabled(true);
+                holder.itemView.buildDrawingCache();
+
+                Bitmap cacheDoBitmap = holder.itemView.getDrawingCache();
+                if (cacheDoBitmap != null) {
+                    bitmapCache.put(String.valueOf(x), cacheDoBitmap);
+                }
+
+                altura += holder.itemView.getMeasuredHeight();
+
+            }
+
+            bitmapPronto = Bitmap.createBitmap(view.getMeasuredWidth(), altura, Bitmap.Config.ARGB_8888);
+
+            Canvas pagina = new Canvas(bitmapPronto);
+            pagina.drawColor(Color.WHITE);
+
+            for (int x = 0; x < tamanhoDaLista; x++){
+                Bitmap bitmap = bitmapCache.get(String.valueOf(x));
+                pagina.drawBitmap(bitmap, 0, alturaVolatil, paint);
+                alturaVolatil += bitmap.getHeight();
+                bitmap.recycle();
+            }
+
+        }
+
+        return bitmapPronto;
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -107,26 +168,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_activity_main, menu);
-        MenuItem item = menu.findItem(R.id.busca);
-        SearchView searchView = (SearchView) item.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+       getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+       return super.onCreateOptionsMenu(menu);
+    }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_gerar_pdf) {
+            Toast.makeText(getApplicationContext(), "Tentando gerar PDF...", Toast.LENGTH_SHORT).show();
+        }
 
-        return super.onCreateOptionsMenu(menu);
+        return super.onOptionsItemSelected(item);
     }
 
 }
